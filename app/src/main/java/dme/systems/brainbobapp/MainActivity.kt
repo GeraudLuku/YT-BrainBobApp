@@ -11,7 +11,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
@@ -22,8 +21,6 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.draw.drawBehind
-import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -142,16 +139,13 @@ fun DefaultPreview() {
                         }
                     }
 
-                    Spacer(modifier = Modifier.size(30.dp))
-
                     Text(
                         text = "Recommended",
                         color = Color.Black,
                         fontWeight = FontWeight.Bold,
-                        fontSize = 28.sp
+                        fontSize = 28.sp,
+                        modifier = Modifier.padding(vertical = 30.dp)
                     )
-
-                    Spacer(modifier = Modifier.size(20.dp))
 
                     LazyColumn(
                         modifier = Modifier.padding(end = 20.dp),
@@ -213,7 +207,7 @@ fun Recommended() {
         ) {
             Box(
                 modifier = Modifier
-                    .clip(shape = RoundedCornerShape(30))
+                    .clip(shape = RoundedCornerShape(20))
                     .background(color = colorResource(id = R.color.orange)),
                 contentAlignment = Alignment.Center
             ) {
@@ -227,11 +221,9 @@ fun Recommended() {
                 )
             }
 
-            Spacer(modifier = Modifier.size(20.dp))
-
             Column(
                 verticalArrangement = Arrangement.SpaceBetween,
-                horizontalAlignment = Alignment.CenterHorizontally
+                horizontalAlignment = Alignment.CenterHorizontally,
             ) {
                 Text(
                     text = "Chatting",
